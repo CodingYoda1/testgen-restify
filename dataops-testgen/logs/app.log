@@ -1,0 +1,285 @@
+[PID: 38733] 2025-12-24 06:47:52,452    INFO Sending termination signal 2 to Testgen UI
+[PID: 38733] 2025-12-24 06:47:52,753    INFO Testgen UI exited with status code 0
+[PID: 39071] 2025-12-24 07:13:15,388    INFO Sending termination signal 2 to Testgen UI
+[PID: 39071] 2025-12-24 07:13:15,694    INFO Testgen UI exited with status code 0
+[PID: 41276] 2025-12-24 07:24:29,617    INFO Sending termination signal 2 to Testgen UI
+[PID: 41276] 2025-12-24 07:24:29,942    INFO Testgen UI exited with status code 0
+[PID: 42124] 2025-12-24 07:26:11,678    INFO Recalculating history for scorecard cc31675c-24ce-4524-9aa4-7d0d0ec95651 in project DEFAULT
+[PID: 42124] 2025-12-24 07:26:11,712    INFO Recalculating history for scorecard cc31675c-24ce-4524-9aa4-7d0d0ec95651 in project DEFAULT is over after 0.03 seconds
+[PID: 42124] 2025-12-24 07:31:50,729    INFO Recalculating history for scorecard 4542313e-a747-49e1-ae52-36efddc6cf7f in project DEFAULT
+[PID: 42124] 2025-12-24 07:31:50,749    INFO Recalculating history for scorecard 4542313e-a747-49e1-ae52-36efddc6cf7f in project DEFAULT is over after 0.02 seconds
+[PID: 42105] 2025-12-24 07:34:51,752    INFO Sending termination signal 2 to Testgen UI
+[PID: 42105] 2025-12-24 07:34:52,108    INFO Testgen UI exited with status code 0
+[PID: 43246] 2025-12-24 07:35:14,024    INFO Triggering profiling run for table group 4f4d7038-137f-40c1-a674-b97987ead173
+[PID: 43379] 2025-12-24 07:35:16,346    INFO Starting profiling run for table group 4f4d7038-137f-40c1-a674-b97987ead173
+[PID: 43379] 2025-12-24 07:35:16,346    INFO Retrieving connection and table group parameters
+[PID: 43379] 2025-12-24 07:35:16,391   ERROR There was an unexpected error
+Traceback (most recent call last):
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/__main__.py", line 70, in invoke
+    super().invoke(ctx)
+    ~~~~~~~~~~~~~~^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/__main__.py", line 127, in run_profile
+    message = run_profiling(table_group_id)
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/common/models/__init__.py", line 52, in wrapper
+    return func(*args, **kwargs)
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/commands/run_profiling.py", line 62, in run_profiling
+    connection = Connection.get(table_group.connection_id)
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/streamlit/runtime/caching/cache_utils.py", line 219, in __call__
+    return self._get_or_create_cached_value(args, kwargs, spinner_message)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/streamlit/runtime/caching/cache_utils.py", line 261, in _get_or_create_cached_value
+    return self._handle_cache_miss(cache, value_key, func_args, func_kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/streamlit/runtime/caching/cache_utils.py", line 320, in _handle_cache_miss
+    computed_value = self._info.func(*func_args, **func_kwargs)
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/common/models/entity.py", line 49, in get
+    return get_current_session().scalars(query).first()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 1498, in first
+    return self._only_one_row(
+           ~~~~~~~~~~~~~~~~~~^
+        raise_for_second_row=False, raise_for_none=False, scalar=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 559, in _only_one_row
+    row = onerow(hard_close=True)
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 1386, in _fetchone_impl
+    return self._real_result._fetchone_impl(hard_close=hard_close)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 1801, in _fetchone_impl
+    row = next(self.iterator, _NO_ROW)
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/orm/loading.py", line 147, in chunks
+    fetch = cursor._raw_all_rows()
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 393, in _raw_all_rows
+    return [make_row(row) for row in rows]
+            ~~~~~~~~^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/row.py", line 77, in __init__
+    proc(value) if proc else value
+    ~~~~^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/sql/type_api.py", line 1712, in process
+    return process_value(impl_processor(value), dialect)
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/common/models/custom_types.py", line 60, in process_result_value
+    return DecryptText(value) if value is not None else value
+           ~~~~~~~~~~~^^^^^^^
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/common/encrypt.py", line 41, in DecryptText
+    salt = settings.APP_ENCRYPTION_SALT.encode("ascii")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'encode'
+[PID: 43246] 2025-12-24 07:35:20,761    INFO Triggering profiling run for table group 4f4d7038-137f-40c1-a674-b97987ead173
+[PID: 43428] 2025-12-24 07:35:22,938    INFO Starting profiling run for table group 4f4d7038-137f-40c1-a674-b97987ead173
+[PID: 43428] 2025-12-24 07:35:22,938    INFO Retrieving connection and table group parameters
+[PID: 43428] 2025-12-24 07:35:22,994   ERROR There was an unexpected error
+Traceback (most recent call last):
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/__main__.py", line 70, in invoke
+    super().invoke(ctx)
+    ~~~~~~~~~~~~~~^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/__main__.py", line 127, in run_profile
+    message = run_profiling(table_group_id)
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/common/models/__init__.py", line 52, in wrapper
+    return func(*args, **kwargs)
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/commands/run_profiling.py", line 62, in run_profiling
+    connection = Connection.get(table_group.connection_id)
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/streamlit/runtime/caching/cache_utils.py", line 219, in __call__
+    return self._get_or_create_cached_value(args, kwargs, spinner_message)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/streamlit/runtime/caching/cache_utils.py", line 261, in _get_or_create_cached_value
+    return self._handle_cache_miss(cache, value_key, func_args, func_kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/streamlit/runtime/caching/cache_utils.py", line 320, in _handle_cache_miss
+    computed_value = self._info.func(*func_args, **func_kwargs)
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/common/models/entity.py", line 49, in get
+    return get_current_session().scalars(query).first()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 1498, in first
+    return self._only_one_row(
+           ~~~~~~~~~~~~~~~~~~^
+        raise_for_second_row=False, raise_for_none=False, scalar=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 559, in _only_one_row
+    row = onerow(hard_close=True)
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 1386, in _fetchone_impl
+    return self._real_result._fetchone_impl(hard_close=hard_close)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 1801, in _fetchone_impl
+    row = next(self.iterator, _NO_ROW)
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/orm/loading.py", line 147, in chunks
+    fetch = cursor._raw_all_rows()
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 393, in _raw_all_rows
+    return [make_row(row) for row in rows]
+            ~~~~~~~~^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/row.py", line 77, in __init__
+    proc(value) if proc else value
+    ~~~~^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/sql/type_api.py", line 1712, in process
+    return process_value(impl_processor(value), dialect)
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/common/models/custom_types.py", line 60, in process_result_value
+    return DecryptText(value) if value is not None else value
+           ~~~~~~~~~~~^^^^^^^
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/common/encrypt.py", line 41, in DecryptText
+    salt = settings.APP_ENCRYPTION_SALT.encode("ascii")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'encode'
+[PID: 43246] 2025-12-24 07:35:40,823    INFO Triggering profiling run for table group 4f4d7038-137f-40c1-a674-b97987ead173
+[PID: 43501] 2025-12-24 07:35:43,121    INFO Starting profiling run for table group 4f4d7038-137f-40c1-a674-b97987ead173
+[PID: 43501] 2025-12-24 07:35:43,121    INFO Retrieving connection and table group parameters
+[PID: 43501] 2025-12-24 07:35:43,171   ERROR There was an unexpected error
+Traceback (most recent call last):
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/__main__.py", line 70, in invoke
+    super().invoke(ctx)
+    ~~~~~~~~~~~~~~^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/__main__.py", line 127, in run_profile
+    message = run_profiling(table_group_id)
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/common/models/__init__.py", line 52, in wrapper
+    return func(*args, **kwargs)
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/commands/run_profiling.py", line 62, in run_profiling
+    connection = Connection.get(table_group.connection_id)
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/streamlit/runtime/caching/cache_utils.py", line 219, in __call__
+    return self._get_or_create_cached_value(args, kwargs, spinner_message)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/streamlit/runtime/caching/cache_utils.py", line 261, in _get_or_create_cached_value
+    return self._handle_cache_miss(cache, value_key, func_args, func_kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/streamlit/runtime/caching/cache_utils.py", line 320, in _handle_cache_miss
+    computed_value = self._info.func(*func_args, **func_kwargs)
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/common/models/entity.py", line 49, in get
+    return get_current_session().scalars(query).first()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 1498, in first
+    return self._only_one_row(
+           ~~~~~~~~~~~~~~~~~~^
+        raise_for_second_row=False, raise_for_none=False, scalar=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 559, in _only_one_row
+    row = onerow(hard_close=True)
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 1386, in _fetchone_impl
+    return self._real_result._fetchone_impl(hard_close=hard_close)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 1801, in _fetchone_impl
+    row = next(self.iterator, _NO_ROW)
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/orm/loading.py", line 147, in chunks
+    fetch = cursor._raw_all_rows()
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/result.py", line 393, in _raw_all_rows
+    return [make_row(row) for row in rows]
+            ~~~~~~~~^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/row.py", line 77, in __init__
+    proc(value) if proc else value
+    ~~~~^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/sql/type_api.py", line 1712, in process
+    return process_value(impl_processor(value), dialect)
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/common/models/custom_types.py", line 60, in process_result_value
+    return DecryptText(value) if value is not None else value
+           ~~~~~~~~~~~^^^^^^^
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/common/encrypt.py", line 41, in DecryptText
+    salt = settings.APP_ENCRYPTION_SALT.encode("ascii")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'encode'
+[PID: 43227] 2025-12-24 07:36:44,983    INFO Sending termination signal 2 to Testgen UI
+[PID: 43692] 2025-12-24 07:43:40,495    INFO Sending termination signal 2 to Testgen UI
+[PID: 43692] 2025-12-24 07:43:40,823    INFO Testgen UI exited with status code 0
+[PID: 44552] 2025-12-24 07:46:25,892    INFO Writing data characteristics to staging
+[PID: 44552] 2025-12-24 07:46:25,921    INFO Refreshing data characteristics and deleting staging
+[PID: 44552] 2025-12-24 07:46:26,006    INFO Triggering profiling run for table group 835f4717-1d9a-4194-82c4-3ef4a2d74af7
+[PID: 44782] 2025-12-24 07:46:28,408    INFO Starting profiling run for table group 835f4717-1d9a-4194-82c4-3ef4a2d74af7
+[PID: 44782] 2025-12-24 07:46:28,408    INFO Retrieving connection and table group parameters
+[PID: 44782] 2025-12-24 07:46:28,456    INFO Creating profiling run record
+[PID: 44782] 2025-12-24 07:46:28,464    INFO Profiling run: d903a0f0-a9af-4f4a-bf28-5be0f66e438a, Table group: testgeb_group, Connection: default
+[PID: 44782] 2025-12-24 07:46:28,465    INFO Getting DDF for table group
+[PID: 44782] 2025-12-24 07:46:28,596    INFO Tables: 46, Columns: 797
+[PID: 44782] 2025-12-24 07:46:28,596    INFO Getting row counts for table group
+[PID: 44782] 2025-12-24 07:46:28,648    INFO Writing data characteristics to staging
+[PID: 44782] 2025-12-24 07:46:28,668    INFO Refreshing data characteristics and deleting staging
+[PID: 44782] 2025-12-24 07:46:29,420    INFO Running column profiling queries: 797
+[PID: 44782] 2025-12-24 07:46:32,409    INFO Writing column profiling results
+[PID: 44782] 2025-12-24 07:46:32,491    INFO Selecting columns for frequency analysis
+[PID: 44782] 2025-12-24 07:46:32,497    INFO Running frequency analysis queries: 75
+[PID: 44782] 2025-12-24 07:46:32,764    INFO Writing frequency results to staging
+[PID: 44782] 2025-12-24 07:46:32,771    INFO Updating profiling results with frequency analysis and deleting staging
+[PID: 44782] 2025-12-24 07:46:33,048    INFO Detecting functional data types and critical data elements
+[PID: 44782] 2025-12-24 07:46:34,278    INFO Retrieving hygiene issue types
+[PID: 44782] 2025-12-24 07:46:34,283    INFO Detecting hygiene issues and updating prevalence and counts
+[PID: 44782] 2025-12-24 07:46:35,229    INFO Setting profiling run status to Completed
+[PID: 44782] 2025-12-24 07:46:35,235    INFO Rolling up profiling scores
+[PID: 44782] 2025-12-24 07:46:35,316    INFO Refreshing results for scorecard Demo Data Quality Dashboard in project DEFAULT
+[PID: 44782] 2025-12-24 07:46:35,646    INFO Refreshing results for scorecard Demo Data Quality Dashboard 1 in project DEFAULT
+[PID: 44782] 2025-12-24 07:46:35,887    INFO Refreshing results for scorecard testgeb_group in project DEFAULT
+[PID: 44782] 2025-12-24 07:46:36,149    INFO Refreshing results for all scorecards in project DEFAULT done after 0.84 seconds
+[PID: 44552] 2025-12-24 07:48:04,904    INFO Triggering profiling run for table group 835f4717-1d9a-4194-82c4-3ef4a2d74af7
+[PID: 44982] 2025-12-24 07:48:07,429    INFO Starting profiling run for table group 835f4717-1d9a-4194-82c4-3ef4a2d74af7
+[PID: 44982] 2025-12-24 07:48:07,429    INFO Retrieving connection and table group parameters
+[PID: 44982] 2025-12-24 07:48:07,481    INFO Creating profiling run record
+[PID: 44982] 2025-12-24 07:48:07,490    INFO Profiling run: 85bf3ed9-2b1f-485a-93aa-79349335cddd, Table group: testgeb_group, Connection: default
+[PID: 44982] 2025-12-24 07:48:07,491    INFO Getting DDF for table group
+[PID: 44982] 2025-12-24 07:48:07,602    INFO Tables: 46, Columns: 797
+[PID: 44982] 2025-12-24 07:48:07,602    INFO Getting row counts for table group
+[PID: 44982] 2025-12-24 07:48:07,674    INFO Writing data characteristics to staging
+[PID: 44982] 2025-12-24 07:48:07,692    INFO Refreshing data characteristics and deleting staging
+[PID: 44982] 2025-12-24 07:48:07,854    INFO Running column profiling queries: 797
+[PID: 44982] 2025-12-24 07:48:11,008    INFO Writing column profiling results
+[PID: 44982] 2025-12-24 07:48:11,091    INFO Selecting columns for frequency analysis
+[PID: 44982] 2025-12-24 07:48:11,097    INFO Running frequency analysis queries: 118
+[PID: 44982] 2025-12-24 07:48:11,452    INFO Writing frequency results to staging
+[PID: 44982] 2025-12-24 07:48:11,460    INFO Updating profiling results with frequency analysis and deleting staging
+[PID: 44982] 2025-12-24 07:48:11,491    INFO Detecting functional data types and critical data elements
+[PID: 44982] 2025-12-24 07:48:12,341    INFO Retrieving hygiene issue types
+[PID: 44982] 2025-12-24 07:48:12,346    INFO Detecting hygiene issues and updating prevalence and counts
+[PID: 44982] 2025-12-24 07:48:13,187    INFO Setting profiling run status to Completed
+[PID: 44982] 2025-12-24 07:48:13,191    INFO Rolling up profiling scores
+[PID: 44982] 2025-12-24 07:48:13,260    INFO Refreshing results for scorecard Demo Data Quality Dashboard in project DEFAULT
+[PID: 44982] 2025-12-24 07:48:13,534    INFO Refreshing results for scorecard Demo Data Quality Dashboard 1 in project DEFAULT
+[PID: 44982] 2025-12-24 07:48:13,723    INFO Refreshing results for scorecard testgeb_group in project DEFAULT
+[PID: 44982] 2025-12-24 07:48:14,066    INFO Refreshing results for all scorecards in project DEFAULT done after 0.81 seconds
+[PID: 44552] 2025-12-24 07:51:58,188    INFO Triggering profiling run for table group 835f4717-1d9a-4194-82c4-3ef4a2d74af7
+[PID: 45305] 2025-12-24 07:52:01,007    INFO Starting profiling run for table group 835f4717-1d9a-4194-82c4-3ef4a2d74af7
+[PID: 45305] 2025-12-24 07:52:01,008    INFO Retrieving connection and table group parameters
+[PID: 45305] 2025-12-24 07:52:01,054    INFO Creating profiling run record
+[PID: 45305] 2025-12-24 07:52:01,062    INFO Profiling run: 4ddfe420-db1e-4adb-956e-fc3aaada7f39, Table group: testgeb_group, Connection: default
+[PID: 45305] 2025-12-24 07:52:01,063    INFO Getting DDF for table group
+[PID: 45305] 2025-12-24 07:52:01,174    INFO Tables: 46, Columns: 797
+[PID: 45305] 2025-12-24 07:52:01,174    INFO Getting row counts for table group
+[PID: 45305] 2025-12-24 07:52:01,257    INFO Writing data characteristics to staging
+[PID: 45305] 2025-12-24 07:52:01,288    INFO Refreshing data characteristics and deleting staging
+[PID: 45305] 2025-12-24 07:52:01,459    INFO Running column profiling queries: 797
+[PID: 45305] 2025-12-24 07:52:05,079    INFO Writing column profiling results
+[PID: 45305] 2025-12-24 07:52:05,141    INFO Selecting columns for frequency analysis
+[PID: 45305] 2025-12-24 07:52:05,145    INFO Running frequency analysis queries: 123
+[PID: 45305] 2025-12-24 07:52:05,644    INFO Writing frequency results to staging
+[PID: 45305] 2025-12-24 07:52:05,649    INFO Updating profiling results with frequency analysis and deleting staging
+[PID: 45305] 2025-12-24 07:52:05,673    INFO Detecting functional data types and critical data elements
+[PID: 45305] 2025-12-24 07:52:06,487    INFO Retrieving hygiene issue types
+[PID: 45305] 2025-12-24 07:52:06,491    INFO Detecting hygiene issues and updating prevalence and counts
+[PID: 45305] 2025-12-24 07:52:07,379    INFO Setting profiling run status to Completed
+[PID: 45305] 2025-12-24 07:52:07,383    INFO Rolling up profiling scores
+[PID: 45305] 2025-12-24 07:52:07,449    INFO Refreshing results for scorecard Demo Data Quality Dashboard in project DEFAULT
+[PID: 45305] 2025-12-24 07:52:07,682    INFO Refreshing results for scorecard Demo Data Quality Dashboard 1 in project DEFAULT
+[PID: 45305] 2025-12-24 07:52:07,881    INFO Refreshing results for scorecard Demo Data Quality Dashboard 2 in project DEFAULT
+[PID: 45305] 2025-12-24 07:52:08,231    INFO Refreshing results for scorecard testgeb_group in project DEFAULT
+[PID: 45305] 2025-12-24 07:52:08,583    INFO Refreshing results for all scorecards in project DEFAULT done after 1.14 seconds

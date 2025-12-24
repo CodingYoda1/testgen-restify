@@ -1,0 +1,677 @@
+[PID: 23929] 2025-12-23 22:57:54,959   ERROR There was an unexpected error
+Traceback (most recent call last):
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/__main__.py", line 70, in invoke
+    super().invoke(ctx)
+    ~~~~~~~~~~~~~~^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/decorators.py", line 84, in new_func
+    return ctx.invoke(f, obj, *args, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/__main__.py", line 378, in quick_start
+    run_quick_start(delete_target_db=True)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/commands/run_quick_start.py", line 121, in run_quick_start
+    run_launch_db_config(delete_db)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/common/models/__init__.py", line 52, in wrapper
+    return func(*args, **kwargs)
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/commands/run_launch_db_config.py", line 75, in run_launch_db_config
+    params_mapping = _get_params_mapping()
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/commands/run_launch_db_config.py", line 23, in _get_params_mapping
+    ui_user_encrypted_password = encrypt_ui_password(settings.PASSWORD)
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/common/encrypt.py", line 54, in encrypt_ui_password
+    hashed_passwords = stauth.Hasher([plain_password]).generate()
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/streamlit_authenticator/hasher.py", line 42, in generate
+    return [self._hash(password) for password in self.passwords]
+            ~~~~~~~~~~^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/streamlit_authenticator/hasher.py", line 31, in _hash
+    return bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
+                         ^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'encode'
+[PID: 25150] 2025-12-23 23:08:17,586   ERROR There was an unexpected error
+Traceback (most recent call last):
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 3361, in _wrap_pool_connect
+    return fn()
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+    ~~~~~~~~~~~~~^
+        exc_value,
+        ^^^^^^^^^^
+        with_traceback=exc_tb,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+    ~~~~~~~~~~~~~^
+        exc_value,
+        ^^^^^^^^^^
+        with_traceback=exc_tb,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/common/database/database_service.py", line 362, in _init_app_db_connection
+    connection: Connection = engine.connect()
+                             ~~~~~~~~~~~~~~^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 3315, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+         ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 3394, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 3364, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, dialect, self
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 2198, in _handle_dbapi_exception_noconnection
+    util.raise_(
+    ~~~~~~~~~~~^
+        sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 3361, in _wrap_pool_connect
+    return fn()
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+    ~~~~~~~~~~~~~^
+        exc_value,
+        ^^^^^^^^^^
+        with_traceback=exc_tb,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+    ~~~~~~~~~~~~~^
+        exc_value,
+        ^^^^^^^^^^
+        with_traceback=exc_tb,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/__main__.py", line 70, in invoke
+    super().invoke(ctx)
+    ~~~~~~~~~~~~~~^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/decorators.py", line 84, in new_func
+    return ctx.invoke(f, obj, *args, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/__main__.py", line 378, in quick_start
+    run_quick_start(delete_target_db=True)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/commands/run_quick_start.py", line 115, in run_quick_start
+    create_database(target_db_name, params_mapping, drop_existing=delete_target_db)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/common/database/database_service.py", line 99, in create_database
+    connection = _init_db_connection(
+        user_override=params["TESTGEN_ADMIN_USER"],
+        password_override=params["TESTGEN_ADMIN_PASSWORD"],
+        user_type="database_admin",
+    )
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/common/database/database_service.py", line 320, in _init_db_connection
+    return _init_app_db_connection(user_override, password_override, user_type, use_raw)
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/common/database/database_service.py", line 369, in _init_app_db_connection
+    raise ValueError(f"Failed to connect to App database '{database_name}'") from e
+ValueError: Failed to connect to App database 'postgres'
+[PID: 25502] 2025-12-23 23:10:30,808   ERROR There was an unexpected error
+Traceback (most recent call last):
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 3361, in _wrap_pool_connect
+    return fn()
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+    ~~~~~~~~~~~~~^
+        exc_value,
+        ^^^^^^^^^^
+        with_traceback=exc_tb,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+    ~~~~~~~~~~~~~^
+        exc_value,
+        ^^^^^^^^^^
+        with_traceback=exc_tb,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/common/database/database_service.py", line 362, in _init_app_db_connection
+    connection: Connection = engine.connect()
+                             ~~~~~~~~~~~~~~^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 3315, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+         ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 3394, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 3364, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, dialect, self
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 2198, in _handle_dbapi_exception_noconnection
+    util.raise_(
+    ~~~~~~~~~~~^
+        sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 3361, in _wrap_pool_connect
+    return fn()
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+    ~~~~~~~~~~~~~^
+        exc_value,
+        ^^^^^^^^^^
+        with_traceback=exc_tb,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+    ~~~~~~~~~~~~~^
+        exc_value,
+        ^^^^^^^^^^
+        with_traceback=exc_tb,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/__main__.py", line 70, in invoke
+    super().invoke(ctx)
+    ~~~~~~~~~~~~~~^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/decorators.py", line 84, in new_func
+    return ctx.invoke(f, obj, *args, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/balram/Desktop/testgen/.venv/lib/python3.13/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/__main__.py", line 378, in quick_start
+    run_quick_start(delete_target_db=True)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/commands/run_quick_start.py", line 115, in run_quick_start
+    create_database(target_db_name, params_mapping, drop_existing=delete_target_db)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/common/database/database_service.py", line 99, in create_database
+    connection = _init_db_connection(
+        user_override=params["TESTGEN_ADMIN_USER"],
+        password_override=params["TESTGEN_ADMIN_PASSWORD"],
+        user_type="database_admin",
+    )
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/common/database/database_service.py", line 320, in _init_db_connection
+    return _init_app_db_connection(user_override, password_override, user_type, use_raw)
+  File "/home/balram/Desktop/testgen/dataops-testgen/testgen/common/database/database_service.py", line 369, in _init_app_db_connection
+    raise ValueError(f"Failed to connect to App database '{database_name}'") from e
+ValueError: Failed to connect to App database 'postgres'
+[PID: 25768] 2025-12-23 23:12:48,230    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Boolean_Value_Mismatch.yaml
+[PID: 25768] 2025-12-23 23:12:48,276    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Char_Column_Date_Values.yaml
+[PID: 25768] 2025-12-23 23:12:48,320    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Char_Column_Number_Units.yaml
+[PID: 25768] 2025-12-23 23:12:48,339    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Char_Column_Number_Values.yaml
+[PID: 25768] 2025-12-23 23:12:48,370    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Column_Pattern_Mismatch.yaml
+[PID: 25768] 2025-12-23 23:12:48,404    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Delimited_Data_Embedded.yaml
+[PID: 25768] 2025-12-23 23:12:48,436    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Inconsistent_Casing.yaml
+[PID: 25768] 2025-12-23 23:12:48,472    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Invalid_Zip3_USA.yaml
+[PID: 25768] 2025-12-23 23:12:48,509    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Invalid_Zip_USA.yaml
+[PID: 25768] 2025-12-23 23:12:48,549    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Leading_Spaces.yaml
+[PID: 25768] 2025-12-23 23:12:48,580    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Multiple_Types_Major.yaml
+[PID: 25768] 2025-12-23 23:12:48,613    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Multiple_Types_Minor.yaml
+[PID: 25768] 2025-12-23 23:12:48,645    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_No_Values.yaml
+[PID: 25768] 2025-12-23 23:12:48,676    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Non_Alpha_Name_Address.yaml
+[PID: 25768] 2025-12-23 23:12:48,706    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Non_Alpha_Prefixed_Name.yaml
+[PID: 25768] 2025-12-23 23:12:48,738    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Non_Printing_Chars.yaml
+[PID: 25768] 2025-12-23 23:12:48,769    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Non_Standard_Blanks.yaml
+[PID: 25768] 2025-12-23 23:12:48,802    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Potential_Duplicates.yaml
+[PID: 25768] 2025-12-23 23:12:48,834    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Potential_PII.yaml
+[PID: 25768] 2025-12-23 23:12:48,864    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Quoted_Values.yaml
+[PID: 25768] 2025-12-23 23:12:48,898    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Recency_One_Year.yaml
+[PID: 25768] 2025-12-23 23:12:48,932    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Recency_Six_Months.yaml
+[PID: 25768] 2025-12-23 23:12:48,967    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Small_Divergent_Value_Ct.yaml
+[PID: 25768] 2025-12-23 23:12:49,002    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Small_Missing_Value_Ct.yaml
+[PID: 25768] 2025-12-23 23:12:49,039    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Small_Numeric_Value_Ct.yaml
+[PID: 25768] 2025-12-23 23:12:49,076    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Standardized_Value_Matches.yaml
+[PID: 25768] 2025-12-23 23:12:49,107    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Suggested_Type.yaml
+[PID: 25768] 2025-12-23 23:12:49,138    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Table_Pattern_Mismatch.yaml
+[PID: 25768] 2025-12-23 23:12:49,175    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Unexpected_Emails.yaml
+[PID: 25768] 2025-12-23 23:12:49,207    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Unexpected_US_States.yaml
+[PID: 25768] 2025-12-23 23:12:49,243    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Unlikely_Date_Values.yaml
+[PID: 25768] 2025-12-23 23:12:49,292    INFO Importing /home/balram/Desktop/testgen/dataops-testgen/testgen/template/dbsetup_anomaly_types/profile_anomaly_types_Variant_Coded_Values.yaml
+[PID: 25768] 2025-12-23 23:12:49,725    INFO Incremental population of target db : demo_db
+[PID: 25768] 2025-12-23 23:12:49,741    INFO Starting profiling run for table group 0ea85e17-acbe-47fe-8394-9970725ad37d
+[PID: 25768] 2025-12-23 23:12:49,741    INFO Retrieving connection and table group parameters
+[PID: 25768] 2025-12-23 23:12:49,755    INFO Creating profiling run record
+[PID: 25768] 2025-12-23 23:12:49,762    INFO Profiling run: 388a7da0-aa0e-4f1d-bbf8-d96ace610b6c, Table group: default, Connection: default
+[PID: 25768] 2025-12-23 23:12:49,762    INFO Getting DDF for table group
+[PID: 25768] 2025-12-23 23:12:49,780    INFO Tables: 4, Columns: 64
+[PID: 25768] 2025-12-23 23:12:49,781    INFO Getting row counts for table group
+[PID: 25768] 2025-12-23 23:12:49,784    INFO Writing data characteristics to staging
+[PID: 25768] 2025-12-23 23:12:49,788    INFO Refreshing data characteristics and deleting staging
+[PID: 25768] 2025-12-23 23:12:49,808    INFO Running column profiling queries: 64
+[PID: 25768] 2025-12-23 23:12:50,172    INFO Writing column profiling results
+[PID: 25768] 2025-12-23 23:12:50,187    INFO Selecting columns for frequency analysis
+[PID: 25768] 2025-12-23 23:12:50,191    INFO Running frequency analysis queries: 25
+[PID: 25768] 2025-12-23 23:12:50,265    INFO Writing frequency results to staging
+[PID: 25768] 2025-12-23 23:12:50,268    INFO Updating profiling results with frequency analysis and deleting staging
+[PID: 25768] 2025-12-23 23:12:50,282    INFO Detecting functional data types and critical data elements
+[PID: 25768] 2025-12-23 23:12:50,379    INFO Retrieving hygiene issue types
+[PID: 25768] 2025-12-23 23:12:50,382    INFO Detecting hygiene issues and updating prevalence and counts
+[PID: 25768] 2025-12-23 23:12:50,590    INFO Setting profiling run status to Completed
+[PID: 25768] 2025-12-23 23:12:50,593    INFO Rolling up profiling scores
+[PID: 25768] 2025-12-23 23:12:50,622    INFO Refreshing results for scorecard default in project DEFAULT
+[PID: 25768] 2025-12-23 23:12:50,858    INFO Refreshing results for all scorecards in project DEFAULT done after 0.24 seconds
+[PID: 25768] 2025-12-23 23:12:51,315    INFO run-test-generation with table_group_id: 0ea85e17-acbe-47fe-8394-9970725ad37d test_suite: default-suite-1
+[PID: 25768] 2025-12-23 23:12:51,316    INFO CurrentStep: Assigning Connection Parameters
+[PID: 25768] 2025-12-23 23:12:51,328    INFO CurrentStep: Retrieving General Parameters for Test Suite default-suite-1
+[PID: 25768] 2025-12-23 23:12:51,332    INFO CurrentStep: Compiling Test Gen Queries
+[PID: 25768] 2025-12-23 23:12:51,345    INFO TestGen CAT Queries were compiled
+[PID: 25768] 2025-12-23 23:12:51,345    INFO Running Test Generation Template Queries
+[PID: 25768] 2025-12-23 23:12:52,012    INFO Starting test run for test suite 9df7489d-92b3-49f9-95ca-512160d7896f
+[PID: 25768] 2025-12-23 23:12:52,013    INFO Retrieving connection, table group, and test suite parameters
+[PID: 25768] 2025-12-23 23:12:52,028    INFO Creating test run record
+[PID: 25768] 2025-12-23 23:12:52,041    INFO Test run: 315ab707-1a5d-4fdc-8ac7-9dbf0793f7c1, Test suite: default-suite-1, Table group: default, Connection: default
+[PID: 25768] 2025-12-23 23:12:52,042    INFO Getting DDF for table group
+[PID: 25768] 2025-12-23 23:12:52,062    INFO Tables: 4, Columns: 64
+[PID: 25768] 2025-12-23 23:12:52,063    INFO Getting row counts for table group
+[PID: 25768] 2025-12-23 23:12:52,066    INFO Writing data characteristics to staging
+[PID: 25768] 2025-12-23 23:12:52,071    INFO Refreshing data characteristics and deleting staging
+[PID: 25768] 2025-12-23 23:12:52,098    INFO Retrieving active test definitions in test suite
+[PID: 25768] 2025-12-23 23:12:52,117    INFO Active test definitions: 220
+[PID: 25768] 2025-12-23 23:12:52,123    INFO Getting tables and columns in target schemas for validation
+[PID: 25768] 2025-12-23 23:12:52,140    INFO No tests in test suite failed validation
+[PID: 25768] 2025-12-23 23:12:52,141    INFO Updating historic test thresholds
+[PID: 25768] 2025-12-23 23:12:52,154    INFO Running QUERY tests: 8
+[PID: 25768] 2025-12-23 23:12:52,210    INFO Writing QUERY test results
+[PID: 25768] 2025-12-23 23:12:52,224    INFO Aggregating CAT tests: 212
+[PID: 25768] 2025-12-23 23:12:52,238    INFO Running aggregated CAT test queries: 14
+[PID: 25768] 2025-12-23 23:12:52,302    INFO Writing aggregated CAT test results
+[PID: 25768] 2025-12-23 23:12:52,320    INFO No METADATA tests to run
+[PID: 25768] 2025-12-23 23:12:52,320    INFO Updating test results and test run
+[PID: 25768] 2025-12-23 23:12:52,343    INFO Setting test run status to Completed
+[PID: 25768] 2025-12-23 23:12:52,346    INFO Updating latest run for test suite
+[PID: 25768] 2025-12-23 23:12:52,351    INFO Rolling up test scores
+[PID: 25768] 2025-12-23 23:12:52,402    INFO Refreshing results for scorecard default in project DEFAULT
+[PID: 25768] 2025-12-23 23:12:52,787    INFO Refreshing results for all scorecards in project DEFAULT done after 0.39 seconds
+[PID: 25768] 2025-12-23 23:12:53,183    INFO Incremental population of target db : demo_db
+[PID: 25768] 2025-12-23 23:12:53,207    INFO Starting test run for test suite 9df7489d-92b3-49f9-95ca-512160d7896f
+[PID: 25768] 2025-12-23 23:12:53,207    INFO Retrieving connection, table group, and test suite parameters
+[PID: 25768] 2025-12-23 23:12:53,216    INFO Creating test run record
+[PID: 25768] 2025-12-23 23:12:53,221    INFO Test run: 697a5c82-3999-4329-a24e-7ace02920582, Test suite: default-suite-1, Table group: default, Connection: default
+[PID: 25768] 2025-12-23 23:12:53,221    INFO Getting DDF for table group
+[PID: 25768] 2025-12-23 23:12:53,242    INFO Tables: 4, Columns: 64
+[PID: 25768] 2025-12-23 23:12:53,242    INFO Getting row counts for table group
+[PID: 25768] 2025-12-23 23:12:53,245    INFO Writing data characteristics to staging
+[PID: 25768] 2025-12-23 23:12:53,249    INFO Refreshing data characteristics and deleting staging
+[PID: 25768] 2025-12-23 23:12:53,266    INFO Retrieving active test definitions in test suite
+[PID: 25768] 2025-12-23 23:12:53,283    INFO Active test definitions: 221
+[PID: 25768] 2025-12-23 23:12:53,287    INFO Getting tables and columns in target schemas for validation
+[PID: 25768] 2025-12-23 23:12:53,294    INFO No tests in test suite failed validation
+[PID: 25768] 2025-12-23 23:12:53,294    INFO Updating historic test thresholds
+[PID: 25768] 2025-12-23 23:12:53,301    INFO Running QUERY tests: 9
+[PID: 25768] 2025-12-23 23:12:53,330    INFO Writing QUERY test results
+[PID: 25768] 2025-12-23 23:12:53,337    INFO Aggregating CAT tests: 212
+[PID: 25768] 2025-12-23 23:12:53,355    INFO Running aggregated CAT test queries: 14
+[PID: 25768] 2025-12-23 23:12:53,407    INFO Writing aggregated CAT test results
+[PID: 25768] 2025-12-23 23:12:53,426    INFO No METADATA tests to run
+[PID: 25768] 2025-12-23 23:12:53,427    INFO Updating test results and test run
+[PID: 25768] 2025-12-23 23:12:53,446    INFO Setting test run status to Completed
+[PID: 25768] 2025-12-23 23:12:53,449    INFO Updating latest run for test suite
+[PID: 25768] 2025-12-23 23:12:53,452    INFO Rolling up test scores
+[PID: 25768] 2025-12-23 23:12:53,516    INFO Refreshing results for scorecard default in project DEFAULT
+[PID: 25768] 2025-12-23 23:12:53,923    INFO Refreshing results for all scorecards in project DEFAULT done after 0.41 seconds
+[PID: 25768] 2025-12-23 23:12:54,269    INFO Incremental population of target db : demo_db
+[PID: 25768] 2025-12-23 23:12:54,301    INFO Starting test run for test suite 9df7489d-92b3-49f9-95ca-512160d7896f
+[PID: 25768] 2025-12-23 23:12:54,302    INFO Retrieving connection, table group, and test suite parameters
+[PID: 25768] 2025-12-23 23:12:54,309    INFO Creating test run record
+[PID: 25768] 2025-12-23 23:12:54,313    INFO Test run: 30ce2e6c-8e63-4ae6-8e93-f6718e7c2332, Test suite: default-suite-1, Table group: default, Connection: default
+[PID: 25768] 2025-12-23 23:12:54,313    INFO Getting DDF for table group
+[PID: 25768] 2025-12-23 23:12:54,332    INFO Tables: 4, Columns: 64
+[PID: 25768] 2025-12-23 23:12:54,332    INFO Getting row counts for table group
+[PID: 25768] 2025-12-23 23:12:54,335    INFO Writing data characteristics to staging
+[PID: 25768] 2025-12-23 23:12:54,339    INFO Refreshing data characteristics and deleting staging
+[PID: 25768] 2025-12-23 23:12:54,359    INFO Retrieving active test definitions in test suite
+[PID: 25768] 2025-12-23 23:12:54,376    INFO Active test definitions: 221
+[PID: 25768] 2025-12-23 23:12:54,381    INFO Getting tables and columns in target schemas for validation
+[PID: 25768] 2025-12-23 23:12:54,386    INFO No tests in test suite failed validation
+[PID: 25768] 2025-12-23 23:12:54,387    INFO Updating historic test thresholds
+[PID: 25768] 2025-12-23 23:12:54,394    INFO Running QUERY tests: 9
+[PID: 25768] 2025-12-23 23:12:54,427    INFO Writing QUERY test results
+[PID: 25768] 2025-12-23 23:12:54,434    INFO Aggregating CAT tests: 212
+[PID: 25768] 2025-12-23 23:12:54,451    INFO Running aggregated CAT test queries: 14
+[PID: 25768] 2025-12-23 23:12:54,499    INFO Writing aggregated CAT test results
+[PID: 25768] 2025-12-23 23:12:54,519    INFO No METADATA tests to run
+[PID: 25768] 2025-12-23 23:12:54,519    INFO Updating test results and test run
+[PID: 25768] 2025-12-23 23:12:54,538    INFO Setting test run status to Completed
+[PID: 25768] 2025-12-23 23:12:54,541    INFO Updating latest run for test suite
+[PID: 25768] 2025-12-23 23:12:54,545    INFO Rolling up test scores
+[PID: 25768] 2025-12-23 23:12:54,589    INFO Refreshing results for scorecard default in project DEFAULT
+[PID: 25768] 2025-12-23 23:12:54,931    INFO Refreshing results for all scorecards in project DEFAULT done after 0.34 seconds
+[PID: 25768] 2025-12-23 23:12:56,314    INFO Incremental population of target db : demo_db
+[PID: 25768] 2025-12-23 23:12:56,355    INFO Starting test run for test suite 9df7489d-92b3-49f9-95ca-512160d7896f
+[PID: 25768] 2025-12-23 23:12:56,356    INFO Retrieving connection, table group, and test suite parameters
+[PID: 25768] 2025-12-23 23:12:56,361    INFO Creating test run record
+[PID: 25768] 2025-12-23 23:12:56,365    INFO Test run: 5a8185b9-5e32-4f95-bcc2-0cb67e679619, Test suite: default-suite-1, Table group: default, Connection: default
+[PID: 25768] 2025-12-23 23:12:56,366    INFO Getting DDF for table group
+[PID: 25768] 2025-12-23 23:12:56,384    INFO Tables: 4, Columns: 64
+[PID: 25768] 2025-12-23 23:12:56,385    INFO Getting row counts for table group
+[PID: 25768] 2025-12-23 23:12:56,389    INFO Writing data characteristics to staging
+[PID: 25768] 2025-12-23 23:12:56,395    INFO Refreshing data characteristics and deleting staging
+[PID: 25768] 2025-12-23 23:12:56,418    INFO Retrieving active test definitions in test suite
+[PID: 25768] 2025-12-23 23:12:56,435    INFO Active test definitions: 221
+[PID: 25768] 2025-12-23 23:12:56,440    INFO Getting tables and columns in target schemas for validation
+[PID: 25768] 2025-12-23 23:12:56,447    INFO No tests in test suite failed validation
+[PID: 25768] 2025-12-23 23:12:56,448    INFO Updating historic test thresholds
+[PID: 25768] 2025-12-23 23:12:56,455    INFO Running QUERY tests: 9
+[PID: 25768] 2025-12-23 23:12:56,487    INFO Writing QUERY test results
+[PID: 25768] 2025-12-23 23:12:56,493    INFO Aggregating CAT tests: 212
+[PID: 25768] 2025-12-23 23:12:56,503    INFO Running aggregated CAT test queries: 14
+[PID: 25768] 2025-12-23 23:12:56,552    INFO Writing aggregated CAT test results
+[PID: 25768] 2025-12-23 23:12:56,577    INFO No METADATA tests to run
+[PID: 25768] 2025-12-23 23:12:56,577    INFO Updating test results and test run
+[PID: 25768] 2025-12-23 23:12:56,605    INFO Setting test run status to Completed
+[PID: 25768] 2025-12-23 23:12:56,608    INFO Updating latest run for test suite
+[PID: 25768] 2025-12-23 23:12:56,611    INFO Rolling up test scores
+[PID: 25768] 2025-12-23 23:12:56,724    INFO Refreshing results for scorecard default in project DEFAULT
+[PID: 25768] 2025-12-23 23:12:57,170    INFO Refreshing results for all scorecards in project DEFAULT done after 0.45 seconds
+[PID: 25998] 2025-12-23 23:28:03,267    INFO Sending termination signal 2 to Testgen UI
+[PID: 25998] 2025-12-23 23:28:03,598    INFO Testgen UI exited with status code 0
+[PID: 26807] 2025-12-23 23:29:55,092    INFO Sending termination signal 2 to Testgen UI
+[PID: 26807] 2025-12-23 23:29:55,418    INFO Testgen UI exited with status code 0
+[PID: 27334] 2025-12-23 23:33:39,985    INFO Triggering profiling run for table group 0ea85e17-acbe-47fe-8394-9970725ad37d
+[PID: 27506] 2025-12-23 23:33:45,880    INFO Starting profiling run for table group 0ea85e17-acbe-47fe-8394-9970725ad37d
+[PID: 27506] 2025-12-23 23:33:45,880    INFO Retrieving connection and table group parameters
+[PID: 27506] 2025-12-23 23:33:45,960    INFO Creating profiling run record
+[PID: 27506] 2025-12-23 23:33:45,969    INFO Profiling run: 9681f320-0006-4962-b7c7-8f0a1af30466, Table group: default, Connection: default
+[PID: 27506] 2025-12-23 23:33:45,970    INFO Getting DDF for table group
+[PID: 27506] 2025-12-23 23:33:46,008    INFO Tables: 4, Columns: 64
+[PID: 27506] 2025-12-23 23:33:46,008    INFO Getting row counts for table group
+[PID: 27506] 2025-12-23 23:33:46,014    INFO Writing data characteristics to staging
+[PID: 27506] 2025-12-23 23:33:46,022    INFO Refreshing data characteristics and deleting staging
+[PID: 27506] 2025-12-23 23:33:46,048    INFO Running column profiling queries: 64
+[PID: 27506] 2025-12-23 23:33:46,497    INFO Writing column profiling results
+[PID: 27506] 2025-12-23 23:33:46,508    INFO Selecting columns for frequency analysis
+[PID: 27506] 2025-12-23 23:33:46,511    INFO Running frequency analysis queries: 25
+[PID: 27506] 2025-12-23 23:33:46,596    INFO Writing frequency results to staging
+[PID: 27506] 2025-12-23 23:33:46,601    INFO Updating profiling results with frequency analysis and deleting staging
+[PID: 27506] 2025-12-23 23:33:46,617    INFO Detecting functional data types and critical data elements
+[PID: 27506] 2025-12-23 23:33:46,712    INFO Retrieving hygiene issue types
+[PID: 27506] 2025-12-23 23:33:46,715    INFO Detecting hygiene issues and updating prevalence and counts
+[PID: 27506] 2025-12-23 23:33:46,915    INFO Setting profiling run status to Completed
+[PID: 27506] 2025-12-23 23:33:46,919    INFO Rolling up profiling scores
+[PID: 27506] 2025-12-23 23:33:46,944    INFO Refreshing results for scorecard default in project DEFAULT
+[PID: 27506] 2025-12-23 23:33:47,456    INFO Refreshing results for all scorecards in project DEFAULT done after 0.52 seconds
+[PID: 27334] 2025-12-23 23:35:06,047    INFO Writing data characteristics to staging
+[PID: 27334] 2025-12-23 23:35:06,067    INFO Refreshing data characteristics and deleting staging
+[PID: 27334] 2025-12-23 23:35:06,080    INFO Triggering profiling run for table group 4f4d7038-137f-40c1-a674-b97987ead173
+[PID: 27658] 2025-12-23 23:35:08,582    INFO Starting profiling run for table group 4f4d7038-137f-40c1-a674-b97987ead173
+[PID: 27658] 2025-12-23 23:35:08,582    INFO Retrieving connection and table group parameters
+[PID: 27658] 2025-12-23 23:35:08,631    INFO Creating profiling run record
+[PID: 27658] 2025-12-23 23:35:08,640    INFO Profiling run: 07f3b0de-d0dd-4cb1-890a-3e2cc2fd7000, Table group: demo, Connection: default
+[PID: 27658] 2025-12-23 23:35:08,641    INFO Getting DDF for table group
+[PID: 27658] 2025-12-23 23:35:08,671    INFO Tables: 1, Columns: 11
+[PID: 27658] 2025-12-23 23:35:08,672    INFO Getting row counts for table group
+[PID: 27658] 2025-12-23 23:35:08,679    INFO Writing data characteristics to staging
+[PID: 27658] 2025-12-23 23:35:08,682    INFO Refreshing data characteristics and deleting staging
+[PID: 27658] 2025-12-23 23:35:08,708    INFO Running column profiling queries: 11
+[PID: 27658] 2025-12-23 23:35:08,872    INFO Writing column profiling results
+[PID: 27658] 2025-12-23 23:35:08,881    INFO Selecting columns for frequency analysis
+[PID: 27658] 2025-12-23 23:35:08,884    INFO Running frequency analysis queries: 3
+[PID: 27658] 2025-12-23 23:35:08,896    INFO Writing frequency results to staging
+[PID: 27658] 2025-12-23 23:35:08,898    INFO Updating profiling results with frequency analysis and deleting staging
+[PID: 27658] 2025-12-23 23:35:08,908    INFO Detecting functional data types and critical data elements
+[PID: 27658] 2025-12-23 23:35:08,968    INFO Retrieving hygiene issue types
+[PID: 27658] 2025-12-23 23:35:08,972    INFO Detecting hygiene issues and updating prevalence and counts
+[PID: 27658] 2025-12-23 23:35:09,088    INFO Setting profiling run status to Completed
+[PID: 27658] 2025-12-23 23:35:09,092    INFO Rolling up profiling scores
+[PID: 27658] 2025-12-23 23:35:09,116    INFO Refreshing results for scorecard default in project DEFAULT
+[PID: 27658] 2025-12-23 23:35:09,396    INFO Refreshing results for scorecard demo in project DEFAULT
+[PID: 27658] 2025-12-23 23:35:09,635    INFO Refreshing results for all scorecards in project DEFAULT done after 0.53 seconds
+[PID: 27304] 2025-12-23 23:45:49,731    INFO Sending termination signal 2 to Testgen UI
+[PID: 27304] 2025-12-23 23:45:50,141    INFO Testgen UI exited with status code 0
+[PID: 28047] 2025-12-23 23:46:35,580    INFO Refreshing results for scorecard table_gro in project DEFAULT
+[PID: 28047] 2025-12-23 23:46:35,877    INFO Refreshing results for scorecard 3fcbeb39-4bf9-4975-a69a-967db726112f done after 0.3 seconds
+[PID: 28047] 2025-12-23 23:48:40,392    INFO Triggering profiling run for table group 4f4d7038-137f-40c1-a674-b97987ead173
+[PID: 28324] 2025-12-23 23:48:43,190    INFO Starting profiling run for table group 4f4d7038-137f-40c1-a674-b97987ead173
+[PID: 28324] 2025-12-23 23:48:43,191    INFO Retrieving connection and table group parameters
+[PID: 28324] 2025-12-23 23:48:43,258    INFO Creating profiling run record
+[PID: 28324] 2025-12-23 23:48:43,267    INFO Profiling run: 3d63f66b-0044-4c51-a960-2ae5ed228726, Table group: demo, Connection: default
+[PID: 28324] 2025-12-23 23:48:43,268    INFO Getting DDF for table group
+[PID: 28324] 2025-12-23 23:48:43,294    INFO Tables: 1, Columns: 11
+[PID: 28324] 2025-12-23 23:48:43,295    INFO Getting row counts for table group
+[PID: 28324] 2025-12-23 23:48:43,297    INFO Writing data characteristics to staging
+[PID: 28324] 2025-12-23 23:48:43,302    INFO Refreshing data characteristics and deleting staging
+[PID: 28324] 2025-12-23 23:48:43,326    INFO Running column profiling queries: 11
+[PID: 28324] 2025-12-23 23:48:43,481    INFO Writing column profiling results
+[PID: 28324] 2025-12-23 23:48:43,492    INFO Selecting columns for frequency analysis
+[PID: 28324] 2025-12-23 23:48:43,497    INFO Running frequency analysis queries: 3
+[PID: 28324] 2025-12-23 23:48:43,510    INFO Writing frequency results to staging
+[PID: 28324] 2025-12-23 23:48:43,513    INFO Updating profiling results with frequency analysis and deleting staging
+[PID: 28324] 2025-12-23 23:48:43,524    INFO Detecting functional data types and critical data elements
+[PID: 28324] 2025-12-23 23:48:43,598    INFO Retrieving hygiene issue types
+[PID: 28324] 2025-12-23 23:48:43,603    INFO Detecting hygiene issues and updating prevalence and counts
+[PID: 28324] 2025-12-23 23:48:43,742    INFO Setting profiling run status to Completed
+[PID: 28324] 2025-12-23 23:48:43,746    INFO Rolling up profiling scores
+[PID: 28324] 2025-12-23 23:48:43,766    INFO Refreshing results for scorecard default in project DEFAULT
+[PID: 28324] 2025-12-23 23:48:43,945    INFO Refreshing results for scorecard demo in project DEFAULT
+[PID: 28324] 2025-12-23 23:48:44,105    INFO Refreshing results for scorecard table_gro in project DEFAULT
+[PID: 28324] 2025-12-23 23:48:44,290    INFO Refreshing results for all scorecards in project DEFAULT done after 0.53 seconds
+[PID: 28047] 2025-12-23 23:49:10,669    INFO Refreshing results for scorecard data source in project DEFAULT
+[PID: 28047] 2025-12-23 23:49:10,876    INFO Refreshing results for scorecard 4542313e-a747-49e1-ae52-36efddc6cf7f done after 0.21 seconds

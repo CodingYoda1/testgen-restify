@@ -1,0 +1,20 @@
+export TG_METADATA_DB_HOST="localhost"
+export TG_METADATA_DB_PORT="5433"
+export TG_METADATA_DB_USER="postgres"
+export TG_METADATA_DB_PASSWORD="postgres"
+export TG_METADATA_DB_NAME="datakitchen"
+export TG_METADATA_DB_SCHEMA="testgen"
+
+
+export TG_METADATA_DB_HOST="localhost"
+export TG_METADATA_DB_PORT="5433"
+export TG_METADATA_DB_USER="postgres"
+export TG_METADATA_DB_PASSWORD="postgres"
+export TG_METADATA_DB_NAME="demo_db"
+export TG_METADATA_DB_SCHEMA="testgen"
+export TESTGEN_LOG_FILE_PATH="/home/balram/Desktop/testgen/dataops-testgen/logs"
+
+openssl rand -base64 32
+export TG_JWT_HASHING_KEY="/T1vwg138WTOfr99wMAAAsAc8jqe4mNmI/V0R75A5NQ="
+
+
