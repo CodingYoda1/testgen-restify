@@ -99,8 +99,8 @@ def create_dashboard(
     # Save to database
     score_def.save()
     
-    # Get fresh score card
-    score_card = score_def.as_score_card()
+    # Get fresh score card and cache it to database
+    score_card = score_def.as_score_card(save_to_cache=True)
     formatted = format_score_card(score_card)
     
     return DashboardResponse(**formatted)

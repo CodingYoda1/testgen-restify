@@ -218,11 +218,15 @@ class ScoreDefinition(Base):
         self.results = []
         self.breakdown = []
 
-    def as_score_card(self) -> ScoreCard:
+    def as_score_card(self, save_to_cache: bool = False) -> ScoreCard:
         """
         Executes and combines two raw queries to build a fresh score
         card from this definition.
-
+        
+        Args:
+            save_to_cache: If True, saves the calculated scores to self.results
+                          for caching in the database
+        
         Query templates:
         score_cards/get_overall_scores_by_column.sql
         score_cards/get_category_scores_by_column.sql
@@ -266,6 +270,57 @@ class ScoreDefinition(Base):
                     ).replace("{category}", category.value).replace("{filters}", filters)
                 ).mappings().all()
             ]
+        
+        # Save to cache if requested
+        if save_to_cache:
+            db_session = get_current_session()
+            
+            # Clear existing results
+            self.clear_results()
+            
+            # Create result objects for overall scores
+            results_to_add = []
+            if self.total_score and overall_scores.get("score") is not None:
+                results_to_add.append(ScoreDefinitionResult(
+                    definition_id=self.id,
+                    category="score",
+                    score=overall_scores.get("score")
+                ))
+                results_to_add.append(ScoreDefinitionResult(
+                    definition_id=self.id,
+                    category="profiling_score",
+                    score=overall_scores.get("profiling_score")
+                ))
+                results_to_add.append(ScoreDefinitionResult(
+                    definition_id=self.id,
+                    category="testing_score",
+                    score=overall_scores.get("testing_score")
+                ))
+            
+            if self.cde_score and overall_scores.get("cde_score") is not None:
+                results_to_add.append(ScoreDefinitionResult(
+                    definition_id=self.id,
+                    category="cde_score",
+                    score=overall_scores.get("cde_score")
+                ))
+            
+            # Create result objects for category scores
+            for cat_score in categories_scores:
+                results_to_add.append(ScoreDefinitionResult(
+                    definition_id=self.id,
+                    category=cat_score["label"],
+                    score=cat_score["score"]
+                ))
+            
+            # Add all results to session and commit
+            for result in results_to_add:
+                db_session.add(result)
+            
+            db_session.flush()
+            db_session.commit()
+            
+            # Refresh self.results
+            db_session.refresh(self, ["results"])
 
         return {
             "id": self.id,
