@@ -8,6 +8,10 @@ from datetime import UTC, datetime, timedelta
 
 import click
 from click.core import Context
+from dotenv import load_dotenv
+
+# Load environment variables from .env file before importing settings
+load_dotenv()
 
 from testgen import settings
 from testgen.commands.run_generate_tests import run_test_gen_queries

@@ -1,3 +1,8 @@
+from dotenv import load_dotenv
+
+# Load environment variables from .env file BEFORE any other imports
+load_dotenv()
+
 from fastapi import FastAPI
 from src.api import router
 from src.routers import data_quality

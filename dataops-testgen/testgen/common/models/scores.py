@@ -138,9 +138,15 @@ class ScoreDefinition(Base):
         sorted_by: str | None = "name",
         last_history_items: int = 0,
     ) -> Iterable[Self]:
+        from sqlalchemy.orm import joinedload
+        
         definitions = []
         db_session = get_current_session()
-        query = select(ScoreDefinition).options()
+        # Eagerly load criteria and all nested relationships to avoid DetachedInstanceError
+        # Chain: ScoreDefinition -> criteria -> filters -> next_filter
+        query = select(ScoreDefinition).options(
+            joinedload(ScoreDefinition.criteria).joinedload(ScoreDefinitionCriteria.filters).joinedload(ScoreDefinitionFilter.next_filter)
+        )
         if name_filter:
             query = query.where(ScoreDefinition.name.ilike(f"%{name_filter}%"))
         if project_code:

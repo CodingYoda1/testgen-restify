@@ -157,7 +157,15 @@ def list_dashboards(
     if include_scores or include_history:
         result = []
         for d in definitions:
-            score_card = d.as_cached_score_card(include_definition=True)
+            # Use fresh score calculation to ensure categories are populated
+            # as_cached_score_card() only works after recalculate has been called
+            score_card = d.as_score_card()
+            
+            # If history is requested and available, merge it from cached data
+            if include_history and d.history:
+                cached_card = d.as_cached_score_card(include_definition=False)
+                score_card["history"] = cached_card.get("history", [])
+            
             formatted = format_score_card(score_card)
             result.append(DashboardResponse(**formatted))
         return result
